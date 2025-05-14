@@ -1,12 +1,14 @@
 const addButton = document.getElementById("add");
 
+const submitButton = document.getElementById("submitBtn");
+const result = document.getElementById("result");
+
 addButton.addEventListener("click", (event) => {
   event.preventDefault();
   document.getElementById("inputContainers").style.display = "block";
-});
 
-const submitButton = document.getElementById("submitBtn");
-const result = document.getElementById("result");
+  submitButton.style.display = "inline-block";
+});
 
 function addDeleteButton(text) {
   const p = document.createElement("p");
@@ -14,8 +16,10 @@ function addDeleteButton(text) {
   p.className = "styled-box";
 
   const deleteButton = document.createElement("button");
-  deleteButton.innerText = "Delete";
+  deleteButton.innerText = "Ištrinti";
   deleteButton.style.marginLeft = "10px";
+
+  deleteButton.className = "deleteButton";
 
   deleteButton.addEventListener("click", () => {
     p.remove();
@@ -43,7 +47,7 @@ submitButton.addEventListener("click", (event) => {
   const date = document.getElementById("date").value;
   const time = document.getElementById("time").value;
 
-  const text = `Užduotis: ${task}, data: ${date} laikas: ${time}`;
+  const text = `${task} ${date} ${time}`;
 
   addDeleteButton(text);
 

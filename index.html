@@ -9,17 +9,27 @@
   <body>
     <h1>To do page</h1>
     <form id="myForm">
-      <button id="add">Pridėti</button>
+      <button id="add">
+        <svg
+          height="24"
+          width="24"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M0 0h24v24H0z" fill="none"></path>
+          <path
+            d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"
+            fill="currentColor"
+          ></path>
+        </svg>
+        <span>Add</span>
+      </button>
       <div id="inputContainers">
-        <input
-          type="text"
-          id="task"
-          placeholder="Įveskite ką norite padaryti"
-        />
+        <input type="text" id="task" placeholder="Įveskite užduotį" />
         <input type="date" id="date" placeholder="Įveskite datą" />
         <input type="text" id="time" placeholder="Įveskite laiką" />
       </div>
-      <button id="submitBtn">Submit</button>
+      <button id="submitBtn"><span class="text">Pridėti</span></button>
 
       <div id="result"></div>
     </form>
