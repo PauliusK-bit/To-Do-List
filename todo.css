@@ -1,0 +1,14 @@
+#inputContainers {
+  display: none;
+}
+
+#result {
+  border: 2px solid purple;
+}
+
+.styled-box {
+  font-size: 20px;
+  color: darkred;
+  font-weight: bold;
+  font-family: Arial;
+}

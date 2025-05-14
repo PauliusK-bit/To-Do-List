@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="todo.css" />
+  </head>
+  <body>
+    <h1>To do page</h1>
+    <form id="myForm">
+      <button id="add">Pridėti</button>
+      <div id="inputContainers">
+        <input
+          type="text"
+          id="task"
+          placeholder="Įveskite ką norite padaryti"
+        />
+        <input type="date" id="date" placeholder="Įveskite datą" />
+        <input type="text" id="time" placeholder="Įveskite laiką" />
+      </div>
+      <button id="submitBtn">Submit</button>
+
+      <div id="result"></div>
+    </form>
+
+    <script src="todo.js"></script>
+  </body>
+</html>
