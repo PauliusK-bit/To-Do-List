@@ -8,38 +8,9 @@ addButton.addEventListener("click", (event) => {
 const submitButton = document.getElementById("submitBtn");
 const result = document.getElementById("result");
 
-window.onload = () => {
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks.forEach((text) => {
-    const p = document.createElement("p");
-    p.innerText = text;
-    p.className = "styled-box";
-    result.appendChild(p);
-  });
-};
-
-submitButton.addEventListener("click", (event) => {
-  event.preventDefault();
-
-  const task = document.getElementById("task").value;
-  const date = document.getElementById("date").value;
-  const time = document.getElementById("time").value;
-
+function addDeleteButton(text) {
   const p = document.createElement("p");
-  p.innerText = `Užduotis: ${task}, data: ${date} laikas: ${time}`;
-
-  result.appendChild(p);
-
-  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-  tasks.push(p.innerText);
-  localStorage.setItem("tasks", JSON.stringify(tasks));
-
-  document.getElementById("inputContainers").style.display = "none";
-
-  document.getElementById("task").value = "";
-  document.getElementById("date").value = "";
-  document.getElementById("time").value = "";
-
+  p.innerText = text;
   p.className = "styled-box";
 
   const deleteButton = document.createElement("button");
@@ -50,10 +21,39 @@ submitButton.addEventListener("click", (event) => {
     p.remove();
 
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    tasks = tasks.filter((item) => item !== p.innerText);
+    tasks = tasks.filter((item) => item !== text);
     localStorage.setItem("tasks", JSON.stringify(tasks));
   });
 
   p.appendChild(deleteButton);
   result.appendChild(p);
+}
+
+window.onload = () => {
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.forEach((text) => {
+    addDeleteButton(text);
+  });
+};
+
+submitButton.addEventListener("click", (event) => {
+  event.preventDefault();
+
+  const task = document.getElementById("task").value;
+  const date = document.getElementById("date").value;
+  const time = document.getElementById("time").value;
+
+  const text = `Užduotis: ${task}, data: ${date} laikas: ${time}`;
+
+  addDeleteButton(text);
+
+  const tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+  tasks.push(text);
+  localStorage.setItem("tasks", JSON.stringify(tasks));
+
+  document.getElementById("inputContainers").style.display = "none";
+
+  document.getElementById("task").value = "";
+  document.getElementById("date").value = "";
+  document.getElementById("time").value = "";
 });
